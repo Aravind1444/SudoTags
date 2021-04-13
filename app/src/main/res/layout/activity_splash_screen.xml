@@ -19,9 +19,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
-        android:text="sudotags.tech"
+        android:text="sudotags.com"
         android:textColor="#fff"
-        android:textSize="30dp"/>
+        android:textSize="20dp"/>
 
 
 </RelativeLayout>

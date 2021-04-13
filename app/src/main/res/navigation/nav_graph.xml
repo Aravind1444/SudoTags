@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/scanPage"
+        android:name="me.aravind.sudotags.ScanPage"
+        android:label="activity_scan_page"
+        tools:layout="@layout/activity_scan_page" />
+    <activity
+        android:id="@+id/profilePage"
+        android:name="me.aravind.sudotags.ProfilePage"
+        android:label="activity_profile_page"
+        tools:layout="@layout/activity_profile_page" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="me.aravind.sudotags.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
