@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="#f1f1f1">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
+        android:background="#f1f1f1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -22,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                tools:context=".MainActivity">
+                tools:context=".MainActivity"
+                >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -53,7 +55,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/sudotagsw" />
+                        android:background="@drawable/bell" />
 
                 </RelativeLayout>
 
@@ -74,19 +76,149 @@
                     android:background="@drawable/rounded"
                     android:orientation="vertical"
                     tools:context=".MainActivity"
-
+                    android:layout_margin="0dp"
+                    android:backgroundTint="#f1f1f1"
                     >
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="12dp"
-                        android:paddingTop="20dp"
-                        android:text="Join/Create A Meeting"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="25dp" />
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:background="#fff"
+                        app:cardCornerRadius="15dp"
+                        android:backgroundTint="#f1f1f1"
+                        app:cardBackgroundColor="#f1f1f1"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="20dp"
+
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#fff"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:background="#fff"
+                                android:paddingTop="10dp"
+                                android:id="@+id/lensone"
+                                android:paddingBottom="5dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/box" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Products"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold"
+                                android:id="@+id/myproducttext"
+                                android:layout_toRightOf="@id/lensone"
+                                android:layout_centerVertical="true"/>
+
+                            <Button
+                                android:id="@+id/arrowbuttonone"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/arrowright" />
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <!-- Code for the second card -->
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:background="#fff"
+                        app:cardCornerRadius="15dp"
+                        android:backgroundTint="#f1f1f1"
+                        app:cardBackgroundColor="#f1f1f1"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginTop="7dp"
+
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#fff"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:background="#fff"
+                                android:paddingTop="10dp"
+                                android:id="@+id/landfone"
+                                android:paddingBottom="5dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/landf" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lost &amp; Found"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold"
+                                android:id="@+id/landftext"
+                                android:layout_toRightOf="@id/landfone"
+                                android:layout_centerVertical="true"/>
+
+                            <Button
+                                android:id="@+id/arrowbuttontwo"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/arrowright" />
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Code for the Add Products Button-->
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/mybutton"
+                        android:text="+ Add Products"
+                        android:textColor="#FFFFFF"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="OnClick"
+                        />
 
 
                 </LinearLayout>
