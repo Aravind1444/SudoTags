@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mainActivity"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/homeicon"
         android:title="Home"
         android:visible="true" />
     <item
-        android:id="@+id/scanPage"
+        android:id="@+id/scanPageFragment"
         android:icon="@drawable/scanicon"
         android:title="Scan" />
     <item
-        android:id="@+id/profilePage"
+        android:id="@+id/profilePageFragment"
         android:icon="@drawable/avataricon"
         android:title="Profile" />
 </menu>
