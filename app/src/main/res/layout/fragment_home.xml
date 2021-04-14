@@ -218,6 +218,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         tools:ignore="OnClick"
+                        android:id="@+id/addproduct"
                         />
 
 

@@ -1,9 +1,11 @@
 package me.aravind.sudotags;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
@@ -18,6 +20,8 @@ import com.synnapps.carouselview.ImageListener;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    private Button button;
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.lens, R.drawable.house, R.drawable.simple, R.drawable.added};
@@ -73,6 +77,18 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //navigate to add products page
+        button = (Button) v.findViewById(R.id.addproduct);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), AddProducts.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         //carousel view
         carouselView = (CarouselView) v.findViewById(R.id.carouselView);
