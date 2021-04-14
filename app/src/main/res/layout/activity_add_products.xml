@@ -136,7 +136,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:lines="1"
-                android:hint="enter the product name"
+                android:hint="enter a pin"
                 />
 
         </RelativeLayout>
@@ -144,17 +144,77 @@
         <!--Code for the Add Products Button-->
 
         <Button
+            android:id="@+id/addproduct"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_margin="15dp"
             android:background="@drawable/mybutton"
+            android:onClick="handleText"
             android:text="Add Product"
-            android:textSize="20dp"
             android:textColor="#FFFFFF"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="OnClick"
-            />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!--Unique product ID-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f1f1f1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="5dp"
+                android:text="Unique ID          : "
+                android:textColor="#515151"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/uniqueidtext"
+                />
+
+            <TextView
+                android:id="@+id/uniqueid"
+                android:layout_toRightOf="@id/uniqueidtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:lines="1"
+                android:hint=" unique tag will appear here"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Tag"
+            android:id="@+id/productagtext"
+            android:textSize="30dp"
+            android:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:layout_below="@id/uniqueid"
+            android:layout_margin="15dp"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/producttagimage"
+            android:scaleType="fitCenter"
+            android:layout_below="@id/productagtext"
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"/>
 
     </LinearLayout>
 

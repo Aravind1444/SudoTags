@@ -1,11 +1,21 @@
 package me.aravind.sudotags;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -13,6 +23,8 @@ import androidx.fragment.app.Fragment;
  * create an instance of this fragment.
  */
 public class ScanPageFragment extends Fragment {
+
+    Button btScan;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +69,56 @@ public class ScanPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_scan_page, container, false);
+
+        //code for the button and scanner
+        btScan = v.findViewById(R.id.scanbutton);
+        btScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(
+                        ScanPageFragment.this.getActivity()
+                );
+
+                intentIntegrator.setPrompt("Use Volume Up key for turning on the flash");
+                intentIntegrator.setBeepEnabled(true);
+                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setCaptureActivity(Capture.class);
+                intentIntegrator.initiateScan();
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scan_page, container, false);
+        return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(
+                requestCode, resultCode, data
+        );
+
+        String resultText = intentResult.getContents();
+        ((TextView) ScanPageFragment.this.requireView().findViewById(R.id.outputText)).setText(resultText);
+
+        if(intentResult.getContents() != null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(ScanPageFragment.this.getActivity());
+            builder.setTitle("Details");
+            builder.setMessage(intentResult.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        else {
+            //when result content is null or not properly read
+            Toast.makeText(getContext(), "Please Scan Again!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
