@@ -2,26 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#059669">
+    android:background="#fff"
+    android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/sudotagst"
-        android:layout_margin="15dp"
-        android:layout_centerVertical="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="15dp"
-        android:text="sudotags.com"
-        android:textColor="#fff"
-        android:textSize="20dp"/>
+
+       <ImageView
+           android:id="@+id/lensimage"
+           android:layout_width="350dp"
+           android:layout_height="350dp"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="45dp"
+           android:layout_marginEnd="45dp"
+           android:layout_marginStart="45dp"
+           android:src="@drawable/lensenlarged" />
+
+       <TextView
+           android:id="@+id/heading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/lensimage"
+           android:layout_centerHorizontal="true"
+           android:layout_margin="15dp"
+           android:fontFamily="@font/bungee"
+           android:text="sudotags.com"
+           android:textColor="#059669"
+           android:textSize="35dp" />
+
 
 
 </RelativeLayout>
