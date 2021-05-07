@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.concurrent.Executor;
 
-public class TrialPage extends AppCompatActivity {
+public class ProfilePage extends AppCompatActivity {
 
     //declaring the profile attributes
     ImageView imageView;
@@ -34,7 +34,7 @@ public class TrialPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trial_page);
+        setContentView(R.layout.activity_profile_page);
 
         imageView =  findViewById(R.id.imageView);
         name =  findViewById(R.id.name);
@@ -67,7 +67,7 @@ public class TrialPage extends AppCompatActivity {
 
 
         //user info
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(TrialPage.this);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(ProfilePage.this);
         if (acct != null) {
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
@@ -88,7 +88,7 @@ public class TrialPage extends AppCompatActivity {
                 .addOnCompleteListener((Executor) this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(TrialPage.this, "you're now logged out, ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfilePage.this, "you're now logged out, ", Toast.LENGTH_SHORT).show();
                         //finish();
                     }
                 });

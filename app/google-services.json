@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "73406185717",
+    "project_id": "sudotags-1620149492876",
+    "storage_bucket": "sudotags-1620149492876.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73406185717:android:bc3c9bf5a01e69123fc5bc",
+        "android_client_info": {
+          "package_name": "me.aravind.sudotags"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73406185717-jbi8j6v7pm35f12j4dum9h2j96fbtegm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATgj7PNeOf4v3Lm0ZZ9SuMAy-D75T4Cys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73406185717-jbi8j6v7pm35f12j4dum9h2j96fbtegm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
