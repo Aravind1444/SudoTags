@@ -92,15 +92,12 @@
 
             <EditText
                 android:id="@+id/productname"
-                android:layout_toRightOf="@id/productnametag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
+                android:layout_toRightOf="@id/productnametag"
                 android:hint="enter the product name"
-                 />
+                android:lines="1" />
 
         </RelativeLayout>
 
@@ -214,6 +211,20 @@
             android:layout_below="@id/productagtext"
             android:layout_marginBottom="20dp"
             android:adjustViewBounds="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mybutton"
+            android:paddingHorizontal="100dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/savebutton"
+            android:layout_margin="20dp"/>
+
 
     </LinearLayout>
 

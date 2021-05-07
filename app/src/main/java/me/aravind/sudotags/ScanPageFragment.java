@@ -1,21 +1,13 @@
 package me.aravind.sudotags;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +17,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class ScanPageFragment extends Fragment {
 
     Button btScan;
+    Button buttonScanPage, buttonHomePage;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,37 +59,7 @@ public class ScanPageFragment extends Fragment {
         }
     }
 
-    //code for scan results
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(
-                requestCode, resultCode, data
-        );
-
-        String resultText = intentResult.getContents();
-        TextView output = getView().findViewById(R.id.outputText);
-        output.setText(resultText);
-        //((TextView) ScanPageFragment.this.requireView().findViewById(R.id.outputText)).setText(resultText);
-
-        if(intentResult.getContents() != null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(ScanPageFragment.this.getActivity());
-            builder.setTitle("Details");
-            builder.setMessage(intentResult.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            builder.show();
-        }
-        else {
-            //when result content is null or not properly read
-            Toast.makeText(getContext(), "Please Scan Again!", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,20 +67,23 @@ public class ScanPageFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_scan_page, container, false);
 
-        //code for the button and scanner
-        btScan = v.findViewById(R.id.scanbutton);
-        btScan.setOnClickListener(new View.OnClickListener() {
+        //navigate to add scanning page
+        buttonScanPage = (Button) v.findViewById(R.id.scanbutton);
+        buttonScanPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentIntegrator intentIntegrator = new IntentIntegrator(
-                        ScanPageFragment.this.getActivity()
-                );
+                Intent intent = new Intent(ScanPageFragment.this.getActivity(), TrialPage.class);
+                startActivity(intent);
+            }
+        });
 
-                intentIntegrator.setPrompt("Use Volume Up key for turning on the flash");
-                intentIntegrator.setBeepEnabled(true);
-                intentIntegrator.setOrientationLocked(true);
-                intentIntegrator.setCaptureActivity(Capture.class);
-                intentIntegrator.initiateScan();
+        //navigate to home page
+        buttonHomePage = (Button) v.findViewById(R.id.scanhomebutton);
+        buttonHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScanPageFragment.this.getActivity(), HomePage.class);
+                startActivity(intent);
             }
         });
 

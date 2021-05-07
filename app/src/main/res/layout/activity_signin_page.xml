@@ -5,13 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SigninPage"
-    android:background="#fff">
+    android:background="#f8f8f8">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/houseimage"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/bungee"
+        android:text="sudotags"
+        android:textColor="#059669"
+        android:textSize="35dp" />
+
+    <ImageView
+        android:id="@+id/houseimage"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/houseimage" />
 
 
     <com.google.android.gms.common.SignInButton
-        android:layout_centerInParent="true"
+        android:layout_below="@id/houseimage"
+        android:layout_centerHorizontal="true"
         android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
+        android:paddingVertical="10dp"
         android:layout_height="wrap_content" />
 
 

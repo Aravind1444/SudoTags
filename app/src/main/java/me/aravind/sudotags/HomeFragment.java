@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -22,6 +23,7 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private Button button;
+    private TextView buttonMyProducts;
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.lens, R.drawable.house, R.drawable.simple, R.drawable.added};
@@ -79,11 +81,21 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         //navigate to add products page
-        button = (Button) v.findViewById(R.id.addproduct);
+        button = v.findViewById(R.id.addproduct);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeFragment.this.getActivity(), AddProducts.class);
+                startActivity(intent);
+            }
+        });
+
+        //navigate to my products page
+        buttonMyProducts = v.findViewById(R.id.myproducttext);
+        buttonMyProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), MyProducts.class);
                 startActivity(intent);
             }
         });

@@ -1,96 +1,80 @@
 package me.aravind.sudotags;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
-import java.util.concurrent.Executor;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class TrialPage extends AppCompatActivity {
 
-    //declaring the profile attributes
-    ImageView imageView;
-    TextView name, email, id;
-    Button signOut;
-
-    GoogleSignInClient mGoogleSignInClient;
+    Button btScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trial_page);
 
-        imageView =  findViewById(R.id.imageView);
-        name =  findViewById(R.id.name);
-        email =  findViewById(R.id.email);
-        id =  findViewById(R.id.id);
-        signOut =  findViewById(R.id.signOut);
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("NonConstantResourceId")
+        btScan = findViewById(R.id.scanbuttonone);
+        btScan.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    // ...
-                    case R.id.signOut:
-                        signOut();
-                        break;
-                    // ...
-                }
+            public void onClick(View view) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(
+                        TrialPage.this
+                );
+
+                //SET PROMPT TEXT
+                intentIntegrator.setPrompt("Use Volume Up key for turning on the flash");
+                intentIntegrator.setBeepEnabled(true);
+                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setCaptureActivity(Capture.class);
+                intentIntegrator.initiateScan();
             }
         });
+    }
 
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
+    //code for scan results
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(
+                requestCode, resultCode, data
+        );
 
+        String resultText = intentResult.getContents();
+        TextView output = findViewById(R.id.outputTextone);
+        output.setText(resultText);
+        ((TextView) TrialPage.this.findViewById(R.id.outputTextone)).setText(resultText);
+        ((TextView) TrialPage.this.findViewById(R.id.outputTextone)).setText(intentResult.getContents());
+        Log.d("The result is", intentResult.getContents());
 
-
-        //user info
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(TrialPage.this);
-        if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
-
-            name.setText(personName);
-            email.setText(personEmail);
-            id.setText(personId);
-            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
-
-
+        if(intentResult.getContents() != null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(TrialPage.this);
+            builder.setTitle("Tag ID");
+            builder.setMessage(intentResult.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.show();
+        }
+        else {
+            //when result content is null or not properly read
+            Toast.makeText(getApplicationContext(), "Please Scan Again!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener((Executor) this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(TrialPage.this, "you're now logged out, ", Toast.LENGTH_SHORT).show();
-                        //finish();
-                    }
-                });
-    }
 }
