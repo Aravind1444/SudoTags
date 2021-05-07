@@ -208,69 +208,6 @@
                     </androidx.cardview.widget.CardView>
 
 
-                    <!-- Code for the third card -->
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="65dp"
-                        android:background="#fff"
-                        app:cardCornerRadius="15dp"
-                        android:backgroundTint="#f1f1f1"
-                        app:cardBackgroundColor="#f1f1f1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="40dp"
-                        android:layout_marginTop="7dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#fff"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:background="#fff"
-                                android:paddingTop="10dp"
-                                android:id="@+id/profileicon"
-                                android:paddingBottom="5dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="10dp"
-                                android:src="@drawable/landf" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Profile"
-                                android:textColor="#010101"
-                                android:textSize="23dp"
-                                android:textStyle="bold"
-                                android:id="@+id/profileText"
-                                android:layout_toRightOf="@id/profileicon"
-                                android:layout_centerVertical="true"/>
-
-                            <Button
-                                android:id="@+id/arrowbuttonthree"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_centerVertical="true"
-                                android:layout_marginBottom="10dp"
-                                android:background="@drawable/arrowright"
-                                />
-
-                        </RelativeLayout>
-
-
-
-                    </androidx.cardview.widget.CardView>
-
                     <!--Code for the Add Products Button-->
 
                     <Button

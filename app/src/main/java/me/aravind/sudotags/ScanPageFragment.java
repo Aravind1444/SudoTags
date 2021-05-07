@@ -66,6 +66,38 @@ public class ScanPageFragment extends Fragment {
         }
     }
 
+    //code for scan results
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(
+                requestCode, resultCode, data
+        );
+
+        String resultText = intentResult.getContents();
+        TextView output = getView().findViewById(R.id.outputText);
+        output.setText(resultText);
+        //((TextView) ScanPageFragment.this.requireView().findViewById(R.id.outputText)).setText(resultText);
+
+        if(intentResult.getContents() != null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(ScanPageFragment.this.getActivity());
+            builder.setTitle("Details");
+            builder.setMessage(intentResult.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        else {
+            //when result content is null or not properly read
+            Toast.makeText(getContext(), "Please Scan Again!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,34 +123,5 @@ public class ScanPageFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return v;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(
-                requestCode, resultCode, data
-        );
-
-        String resultText = intentResult.getContents();
-        ((TextView) ScanPageFragment.this.requireView().findViewById(R.id.outputText)).setText(resultText);
-
-        if(intentResult.getContents() != null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(ScanPageFragment.this.getActivity());
-            builder.setTitle("Details");
-            builder.setMessage(intentResult.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            builder.show();
-        }
-        else {
-            //when result content is null or not properly read
-            Toast.makeText(getContext(), "Please Scan Again!", Toast.LENGTH_SHORT).show();
-        }
     }
 }

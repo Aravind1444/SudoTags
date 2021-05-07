@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -142,7 +143,7 @@ public class ProfilePageFragment extends Fragment {
             name.setText(personName);
             email.setText(personEmail);
             id.setText(personId);
-            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
+            Glide.with(this).load(String.valueOf(personPhoto)).apply(new RequestOptions().override(750, 750)).into(imageView);
 
 
         }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,7 +22,6 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private Button button;
-    private TextView buttonProfile;
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.lens, R.drawable.house, R.drawable.simple, R.drawable.added};
@@ -90,15 +88,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //navigate to profile
-        buttonProfile = (TextView) v.findViewById(R.id.profileText);
-        buttonProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeFragment.this.getActivity(), ProfilePage.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 

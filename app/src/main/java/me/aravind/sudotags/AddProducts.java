@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -26,6 +28,7 @@ public class AddProducts extends AppCompatActivity {
     ImageView ivOutput;
     Button addProductButton;
     EditText productName;
+    TextView id;
 
 
     @Override
@@ -45,14 +48,23 @@ public class AddProducts extends AppCompatActivity {
     }
 
 
-
     public void handleText(View view){
+
+        //google auth profile details
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(AddProducts.this);
+        if (acct != null) {
+            String personId = acct.getId();
+            Log.d("User id is : ", personId);
+        }
+        String personId = acct.getId();
+        TextView userid = findViewById(R.id.productpin);
+        userid.setText(personId);
+
         addProductButton = findViewById(R.id.addproduct);
         productName = findViewById(R.id.productname);
         ivOutput = findViewById(R.id.producttagimage);
         TextView productTextName= findViewById(R.id.productname);
-        TextView productPinValue = findViewById(R.id.productpin);
-        String uniqueID = ("sudo!@"  + productTextName.getText().toString() + "sudo!@"  +  productPinValue.getText().toString() + "sudo!@");
+        String uniqueID = ("sudo!@"  + personId + productTextName.getText().toString() +"@tags!");
         ((TextView)findViewById(R.id.uniqueid)).setText(uniqueID);
 
         //logging the uniqueID to the console
