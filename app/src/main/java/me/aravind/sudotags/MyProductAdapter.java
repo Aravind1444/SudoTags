@@ -39,6 +39,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
         holder.productNameDB.setText(myproductdata.getProductNameDB());
         holder.userIDDB.setText(myproductdata.getUserIDDB());
 
+
     }
 
     @Override

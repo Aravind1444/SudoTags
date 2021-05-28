@@ -45,6 +45,23 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/addproduct"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:text="Your Products"
+            android:textColor="#515151"
+            android:textSize="30dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myproducts"
         android:layout_margin="10dp"

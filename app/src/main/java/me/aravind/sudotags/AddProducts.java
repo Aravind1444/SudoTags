@@ -100,8 +100,8 @@ public class AddProducts extends AppCompatActivity {
             Log.d("User id is : ", personId);
         }
         String personId = acct.getId();
-        TextView userid = findViewById(R.id.productpin);
-        userid.setText(personId);
+        //TextView userid = findViewById(R.id.productpin);
+        //userid.setText(personId);
         String personName = acct.getDisplayName();
         String personEmail = acct.getEmail();
 

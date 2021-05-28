@@ -101,42 +101,6 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#f1f1f1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:paddingBottom="5dp"
-                android:text="User ID             : "
-                android:textColor="#515151"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/pin"
-                />
-
-            <TextView
-                android:id="@+id/productpin"
-                android:layout_toRightOf="@id/pin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
-                />
-
-        </RelativeLayout>
-
         <!--Code for the Add Products Button-->
 
         <Button
@@ -167,7 +131,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:paddingBottom="5dp"
-                android:text="Unique ID          : "
+                android:text="User ID             : "
                 android:textColor="#515151"
                 android:textStyle="bold"
                 android:textSize="15dp"
