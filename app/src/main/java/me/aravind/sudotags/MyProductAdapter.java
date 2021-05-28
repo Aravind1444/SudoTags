@@ -1,5 +1,8 @@
 package me.aravind.sudotags;
 
+//this file is for pulling the data
+
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +36,8 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         MyProductData myproductdata = list.get(position);
-        holder.theproductName.setText(myproductdata.getTheproductName());
-        holder.theuniqueID.setText(myproductdata.getTheuniqueID());
+        holder.productNameDB.setText(myproductdata.getProductNameDB());
+        holder.userIDDB.setText(myproductdata.getUserIDDB());
 
     }
 
@@ -45,14 +48,14 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyVi
 
     public static  class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView theproductName, theuniqueID;
+        TextView productNameDB, userIDDB;
 
 
         public MyViewHolder(@NonNull View myproductView) {
             super(myproductView);
 
-            theproductName = myproductView.findViewById(R.id.theproductName);
-            theuniqueID = myproductView.findViewById(R.id.theuniqueID);
+            productNameDB = myproductView.findViewById(R.id.theproductName);
+            userIDDB = myproductView.findViewById(R.id.theuniqueID);
 
         }
 

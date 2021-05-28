@@ -18,6 +18,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class TrialPage extends AppCompatActivity {
 
+    private Button button;
     Button btScan;
 
     @Override
@@ -39,6 +40,16 @@ public class TrialPage extends AppCompatActivity {
                 intentIntegrator.setOrientationLocked(true);
                 intentIntegrator.setCaptureActivity(Capture.class);
                 intentIntegrator.initiateScan();
+            }
+        });
+
+        //navigate to info page
+        button = (Button) findViewById(R.id.homebutton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrialPage.this, HomePage.class);
+                startActivity(intent);
             }
         });
     }

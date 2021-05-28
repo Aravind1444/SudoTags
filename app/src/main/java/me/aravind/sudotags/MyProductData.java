@@ -1,14 +1,27 @@
 package me.aravind.sudotags;
 
+//this file is for pulling the data
+
 public class MyProductData {
 
-    String theproductName, theuniqueID;
+    String productNameDB;
+    String userIDDB;
+    String userNameDB;
+    String userEmailDB;
 
-    public String getTheproductName() {
-        return theproductName;
+    public String getProductNameDB() {
+        return productNameDB;
     }
 
-    public String getTheuniqueID() {
-        return theuniqueID;
+    public String getUserIDDB() {
+        return userIDDB;
+    }
+
+    public String getUserNameDB() {
+        return userNameDB;
+    }
+
+    public String getUserEmailDB() {
+        return userEmailDB;
     }
 }

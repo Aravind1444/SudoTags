@@ -65,8 +65,19 @@ public class AddProducts extends AppCompatActivity {
 
         });
 
+        //google auth profile details for the database child below
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(AddProducts.this);
+        if (acct != null) {
+            String personId = acct.getId();
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            Log.d("User id is : ", personId);
+        }
+        String personId = acct.getId();
+
         //database reference
-        sudotagsDB = FirebaseDatabase.getInstance().getReference().child("Products");
+        //trying to change child products to user id
+        sudotagsDB = FirebaseDatabase.getInstance().getReference().child(""+personId);
 
         //navigate to info page
         button = (Button) findViewById(R.id.homebutton);
@@ -91,13 +102,17 @@ public class AddProducts extends AppCompatActivity {
         String personId = acct.getId();
         TextView userid = findViewById(R.id.productpin);
         userid.setText(personId);
+        String personName = acct.getDisplayName();
+        String personEmail = acct.getEmail();
 
         addProductButton = findViewById(R.id.addproduct);
         productName = findViewById(R.id.productname);
         ivOutput = findViewById(R.id.producttagimage);
         TextView productTextName = findViewById(R.id.productname);
         String ProductName = productTextName.getText().toString();
-        String uniqueID = ("sudo!@" + personId + productTextName.getText().toString() + "@tags!");
+        //removing sudo@ and @tags and product name and making it just the user id in the tag
+        //"sudo!@" + productTextName.getText().toString() + "@tags!" ---> removed
+        String uniqueID = (personId);
         ((TextView) findViewById(R.id.uniqueid)).setText(uniqueID);
 
         //logging the uniqueID to the console
@@ -123,7 +138,7 @@ public class AddProducts extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ProductData productdata = new ProductData(personId, ProductName, uniqueID);
+        ProductData productdata = new ProductData(ProductName, personId, personName, personEmail);
         sudotagsDB.push().setValue(productdata);
         Toast.makeText(AddProducts.this, "Successfully Added", Toast.LENGTH_SHORT).show();
     }
