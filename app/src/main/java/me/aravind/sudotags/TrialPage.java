@@ -3,6 +3,7 @@ package me.aravind.sudotags;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -83,7 +84,6 @@ public class TrialPage extends AppCompatActivity {
 
         //declaring the name and text mail variables
         final TextView name = findViewById(R.id.ownername);
-        final TextView email = findViewById(R.id.email);
 
         //querying owner info and to fire mail
 
@@ -109,9 +109,9 @@ public class TrialPage extends AppCompatActivity {
                         Log.i("The name is ", dbName);
                         name.setText(dbName);
 
-                        String dbMail = String.valueOf(dataSnapshot1.child("userEmailDB").getValue());
+                        final String dbMail = String.valueOf(dataSnapshot1.child("userEmailDB").getValue());
                         Log.i("The mail is ", dbMail);
-                        email.setText(dbMail);
+                        //contact the owner button
 
                         count++;
 
@@ -120,6 +120,19 @@ public class TrialPage extends AppCompatActivity {
                         String subject = "Lost Product Scanned!";
                         String message = "Hello " + dbName + ", \n\nYour product which was lost recently was found and scanned by " + personName + ". Please reach out to him using this mail address : " + personEmail;
                         sendMail(mail, subject, message);
+
+                        //code for contact owner button
+                        Button contactButton = (Button) findViewById(R.id.contactButton);
+                        contactButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                String url = "mailto:"+dbMail;
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse(url));
+                                startActivity(i);
+                            }
+                        });
                     }
                 }
             }
@@ -132,8 +145,8 @@ public class TrialPage extends AppCompatActivity {
         //alert dialog box
         if(intentResult.getContents() != null){
             AlertDialog.Builder builder = new AlertDialog.Builder(TrialPage.this);
-            builder.setTitle("Tag ID");
-            builder.setMessage(intentResult.getContents());
+            builder.setTitle("Hurray 🥳");
+            builder.setMessage("The owner of the product has been notified about the product being found. Please feel free to reach out to the owner to return the item!");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

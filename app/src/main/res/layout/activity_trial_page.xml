@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -46,6 +46,23 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/scanimage"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:layout_gravity="center"
+            android:text="Scan A Tag"
+            android:textColor="#515151"
+            android:textSize="30dp" />
+
 
         <Button
             android:id="@+id/scanbuttonone"
@@ -53,9 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/mybutton"
-            android:fontFamily="@font/bungee"
             android:paddingHorizontal="30dp"
-            android:text="Scan a Tag"
+            android:text="Scan Now"
             android:textColor="#fff"
             android:layout_margin="30dp"
             android:textSize="25dp" />
@@ -99,41 +115,6 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#f9f9f9"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:paddingBottom="5dp"
-                android:text="email ID : "
-                android:textColor="#515151"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/emailtext"
-                />
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_toRightOf="@id/emailtext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
-                />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -171,8 +152,20 @@
 
         </RelativeLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Owner"
+            android:background="@drawable/mybutton"
+            android:layout_margin="30dp"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:paddingVertical="10dp"
+            android:id="@+id/contactButton"
+            />
+
 
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
