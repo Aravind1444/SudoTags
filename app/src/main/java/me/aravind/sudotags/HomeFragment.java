@@ -23,7 +23,7 @@ import com.synnapps.carouselview.ImageListener;
 public class HomeFragment extends Fragment {
 
     private Button button;
-    private TextView buttonMyProducts;
+    private TextView buttonMyProducts, buttonLandF;
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.lens, R.drawable.house, R.drawable.simple, R.drawable.added};
@@ -100,6 +100,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to csoon page
+        buttonLandF = v.findViewById(R.id.landftext);
+        buttonLandF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), ComingSoon.class);
+                startActivity(intent);
+            }
+        });
 
 
 
