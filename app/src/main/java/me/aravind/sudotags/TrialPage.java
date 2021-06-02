@@ -55,7 +55,7 @@ public class TrialPage extends AppCompatActivity {
         });
 
 
-        //navigate to info page
+        //navigate to home page
         button = (Button) findViewById(R.id.homebutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +86,7 @@ public class TrialPage extends AppCompatActivity {
         final TextView name = findViewById(R.id.ownername);
 
         //querying owner info and to fire mail
+        //.child("" + resultText)
 
         dbOwner = FirebaseDatabase.getInstance().getReference().child("" + resultText);
         dbOwner.addValueEventListener(new ValueEventListener() {
@@ -118,15 +119,18 @@ public class TrialPage extends AppCompatActivity {
                         //mailing feature
                         String mail = dbMail;
                         String subject = "Lost Product Scanned!";
-                        String message = "Hello " + dbName + ", \n\nYour product which was lost recently was found and scanned by " + personName + ". Please reach out to him using this mail address : " + personEmail;
-                        sendMail(mail, subject, message);
+                        String message = "Hello " + dbName + ", \n\nYour product which was lost recently was found and scanned by " + personName + ". Please reach out to them using this mail address : " + personEmail + "\n\nRegards \nSudoTags Team";
+                        int a = 0;
+                        if(a == 0){
+                            sendMail(mail, subject, message);
+                            a++;
+                        }
 
                         //code for contact owner button
                         Button contactButton = (Button) findViewById(R.id.contactButton);
                         contactButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
                                 String url = "mailto:"+dbMail;
                                 Intent i = new Intent(Intent.ACTION_VIEW);
                                 i.setData(Uri.parse(url));

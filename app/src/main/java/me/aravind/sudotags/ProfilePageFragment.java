@@ -1,6 +1,7 @@
 package me.aravind.sudotags;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -147,6 +148,16 @@ public class ProfilePageFragment extends Fragment {
 
 
         }
+
+        //navigate to csoon page
+        Button buttonAbout = v.findViewById(R.id.aboutPage);
+        buttonAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilePageFragment.this.getActivity(), AboutOne.class);
+                startActivity(intent);
+            }
+        });
 
 
         return v;

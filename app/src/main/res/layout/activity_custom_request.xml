@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilePageFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f1f1f1"
-        >
+    tools:context=".CustomRequest">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#f1f1f1"
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -24,6 +17,7 @@
             android:layout_height="wrap_content"
             android:background="#fff"
             android:orientation="horizontal">
+
 
             <ImageView
                 android:layout_width="150dp"
@@ -35,10 +29,9 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
-                android:src="@drawable/sudotagsw"
-                android:id="@+id/profileImage"/>
+                android:src="@drawable/sudotagsw" />
 
-            <!--<Button
+            <Button
                 android:id="@+id/homebutton"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
@@ -49,25 +42,32 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/homeicon" />-->
+                android:background="@drawable/homeicon" />
 
         </RelativeLayout>
 
         <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/customqr"
+            android:layout_gravity="center"
+            />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:fontFamily="@font/bungee"
             android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:layout_margin="50dp"
-            android:background="#fff"
-            />
+            android:layout_marginVertical="25dp"
+            android:text="Custom Tags"
+            android:textColor="#515151"
+            android:textSize="30dp" />
 
+        <!--Sticker Tags-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f1f1f1"
             android:orientation="horizontal">
 
             <TextView
@@ -77,33 +77,31 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:paddingBottom="5dp"
-                android:text="Name : "
+                android:text="Sticker Tags                   : "
                 android:textColor="#515151"
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/nametext"
+                android:id="@+id/stickertagtext"
                 />
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_toRightOf="@id/nametext"
+            <EditText
+                android:id="@+id/stickerTagValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
-                />
+                android:layout_toRightOf="@id/stickertagtext"
+                android:hint="Yes / No"
+                android:lines="1" />
 
         </RelativeLayout>
 
+        <!--Preferred Color-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f1f1f1"
             android:orientation="horizontal">
 
             <TextView
@@ -113,34 +111,31 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:paddingBottom="5dp"
-                android:text="email  : "
+                android:text="Preferred Color of Tag  : "
                 android:textColor="#515151"
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/emailText"
+                android:id="@+id/colortagtext"
                 />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_toRightOf="@id/emailText"
+            <EditText
+                android:id="@+id/colorTagValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
-                />
+                android:layout_toRightOf="@id/colortagtext"
+                android:hint="Sudo Green"
+                android:lines="1" />
 
         </RelativeLayout>
 
-
+        <!--Tag Amount-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f1f1f1"
             android:orientation="horizontal">
 
             <TextView
@@ -150,58 +145,78 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:paddingBottom="5dp"
-                android:text="ID        : "
+                android:text="Number of Tags             : "
                 android:textColor="#515151"
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/idText"
+                android:id="@+id/numberText"
                 />
 
-            <TextView
-                android:id="@+id/id"
-                android:layout_toRightOf="@id/idText"
+            <EditText
+                android:id="@+id/numberTagsValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:lines="1"
-                />
+                android:layout_toRightOf="@id/numberText"
+                android:hint="10"
+                android:lines="1" />
 
         </RelativeLayout>
+
+        <!--Contact Number-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="5dp"
+                android:text="Contact Number             : "
+                android:textColor="#515151"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/contactText"
+                />
+
+            <EditText
+                android:id="@+id/contactTextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_toRightOf="@id/contactText"
+                android:hint="1234567890"
+                android:lines="1" />
+
+        </RelativeLayout>
+
+        <!--Code for the Request Tags Button-->
 
         <Button
+            android:id="@+id/placeOrder"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ABOUT"
-            android:background="@drawable/mybutton"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            android:paddingVertical="15dp"
-            android:paddingHorizontal="105dp"
+            android:layout_height="65dp"
             android:layout_margin="15dp"
-            android:layout_gravity="center"
-            android:id="@+id/aboutPage"
-            />
+            android:background="@drawable/mybutton"
+            android:onClick="placeOrder"
+            android:text="Place Order"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign Out"
-            android:background="@drawable/mybutton"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            android:paddingVertical="15dp"
-            android:paddingHorizontal="105dp"
-            android:layout_margin="15dp"
-            android:layout_gravity="center"
-            android:id="@+id/signOut"
-            />
+
 
     </LinearLayout>
-    </ScrollView>
 
-</FrameLayout>
+</ScrollView>

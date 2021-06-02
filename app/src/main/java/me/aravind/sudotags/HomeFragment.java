@@ -69,9 +69,6 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
-
-
     }
 
     @Override
@@ -90,7 +87,36 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to my custom order page
+        Button buttonCustomOrder = v.findViewById(R.id.arrowbuttontwo);
+        buttonCustomOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), CustomRequest.class);
+                startActivity(intent);
+            }
+        });
+
+        //addition for the case of custom order text
+         TextView customOrderText= v.findViewById(R.id.customordertext);
+        customOrderText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), CustomRequest.class);
+                startActivity(intent);
+            }
+        });
+
         //navigate to my products page
+        Button buttonMyProductsMain = v.findViewById(R.id.arrowbuttonone);
+        buttonMyProductsMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), MyProducts.class);
+                startActivity(intent);
+            }
+        });
+
         buttonMyProducts = v.findViewById(R.id.myproducttext);
         buttonMyProducts.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +127,15 @@ public class HomeFragment extends Fragment {
         });
 
         //navigate to csoon page
+        Button buttonLandFMain = v.findViewById(R.id.arrowbuttonthree);
+        buttonLandFMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), ComingSoon.class);
+                startActivity(intent);
+            }
+        });
+
         buttonLandF = v.findViewById(R.id.landftext);
         buttonLandF.setOnClickListener(new View.OnClickListener() {
             @Override

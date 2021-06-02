@@ -14,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComingSoon"></activity>
+        <activity android:name=".AboutThree"></activity>
+        <activity android:name=".AboutTwo" />
+        <activity android:name=".AboutOne" />
+        <activity android:name=".CustomRequest" />
+        <activity android:name=".ComingSoon" />
         <activity android:name=".MyProducts" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".SigninPage" />

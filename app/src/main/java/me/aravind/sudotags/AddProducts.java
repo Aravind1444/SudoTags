@@ -88,6 +88,16 @@ public class AddProducts extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //navigate to Order page
+        Button placeOrderbutton = findViewById(R.id.placeCustomOrder);
+        placeOrderbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddProducts.this, CustomRequest.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
