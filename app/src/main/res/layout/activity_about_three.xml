@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You don't have always stick with the monochrome codes. It's time to move ahead with colorful codes. Reach use the Custom Order section within the app to make use of the Custom Tags service. "
+            android:text="You don't have to always stick with the monochrome or black and white codes. It's time to move ahead with colorful codes with different shape and size. Reach out to us using the Custom Order section within the app to make use of the Custom Tags service."
             android:layout_marginHorizontal="15dp"
             android:justificationMode="inter_word"
             android:textSize="20dp"

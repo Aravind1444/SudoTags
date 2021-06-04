@@ -17,10 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.BarcodeFormat;
@@ -36,6 +38,8 @@ import java.io.IOException;
 
 public class AddProducts extends AppCompatActivity {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     private Button button, saveButton;
     ImageView ivOutput;
     Button addProductButton;
@@ -49,6 +53,12 @@ public class AddProducts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_products);
+
+        //force turn off night mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        //firebase analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //save the qr code to gallery
         ActivityCompat.requestPermissions(AddProducts.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);

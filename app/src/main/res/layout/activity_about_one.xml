@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add any of your products or assets to your account and attach your unique codes to them. You can either request custom tags which will be delivered to your home or use the soft copy."
+            android:text="Add any of your products or assets to your account and attach your unique codes to them. You can either request custom tags / sticker tags which will be delivered to your doorsteps or use the soft copy, which can be solved to your device. You can generate physical copies by yourself using that."
             android:layout_marginHorizontal="15dp"
             android:textSize="20dp"
             android:fontFamily="@font/nunito_sans_extralight"

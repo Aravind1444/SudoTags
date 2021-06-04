@@ -14,9 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class TrialPage extends AppCompatActivity {
 
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     private Button button;
     Button btScan;
 
@@ -36,6 +40,13 @@ public class TrialPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trial_page);
+
+        //force turn off night mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+
+        //firebase analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         btScan = findViewById(R.id.scanbuttonone);
         btScan.setOnClickListener(new View.OnClickListener() {

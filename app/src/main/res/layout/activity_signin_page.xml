@@ -33,7 +33,7 @@
         android:layout_below="@id/houseimage"
         android:layout_centerHorizontal="true"
         android:id="@+id/sign_in_button"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:paddingVertical="10dp"
         android:layout_height="wrap_content" />
 

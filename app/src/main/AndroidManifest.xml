@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutThree"></activity>
+        <activity android:name=".AboutThreeSignIn"></activity>
+        <activity android:name=".WelcomeDetails" />
+        <activity android:name=".AboutThree" />
         <activity android:name=".AboutTwo" />
         <activity android:name=".AboutOne" />
         <activity android:name=".CustomRequest" />
