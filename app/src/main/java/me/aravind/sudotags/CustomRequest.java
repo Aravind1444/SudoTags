@@ -63,6 +63,9 @@ public class CustomRequest extends AppCompatActivity {
         EditText contactNumber = findViewById(R.id.contactTextValue);
         String contact = contactNumber.getText().toString();
 
+        EditText deliveryAddress = findViewById(R.id.contactAddressValue);
+        String address = deliveryAddress.getText().toString();
+
         //google auth profile details
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(CustomRequest.this);
         if (acct != null) {
@@ -76,13 +79,13 @@ public class CustomRequest extends AppCompatActivity {
         //mailing feature - mail for the developer
         String mail = "thesudotags@gmail.com";
         String subject = "New Custom Order / Request";
-        String message = "Hey there,\n\n" + personName + " has requested the creation of custom QR Codes with the following details. Here are the contact details, as well as the tag details: \n\nName : " + personName + "\nemail id : " + personEmail + "\nUser ID : " + personId + "\nSticker Tags : " + stcikers + "\nPreferred Tag Color : " + colors + "\nNumber of Tags : " + numberofTags + "\nContact Number : " + contact;
+        String message = "Hey there,\n\n" + personName + " has requested the creation of custom QR Codes with the following details. Here are the contact details, as well as the tag details: \n\nName : " + personName + "\nemail id : " + personEmail + "\nUser ID : " + personId + "\nSticker Tags : " + stcikers + "\nPreferred Tag Color : " + colors + "\nNumber of Tags : " + numberofTags + "\nContact Number : " + contact + "\nAddress : " + address;
         sendMail(mail, subject, message);
 
         //mailing feature - mail for user
         String mailuser = personEmail;
         String subjectUser = "SudoTags | Order Received";
-        String messageUser = "Hello " + personName + ", \n\nThe SudoTags team has received a request for a custom tag with the following details: \n\nName : " + personName + "\nemail id : " + personEmail + "\nUser ID : " + personId + "\nSticker Tags : " + stcikers + "\nPreferred Tag Color : " + colors + "\nNumber of Tags : " + numberofTags + "\nContact Number : " + contact + "\n\nIf you didn't opt for a Sticker Tag, your custom tag will be arriving to this mail box within 2 days at max. If you have opted for sticker tags, we will send you the soft copy within 2 days and the Sticker Tags will be arriving at your physical mailing address based on the delivery speed at your location. Also, please reply back to this mail with the delivery address for smooth processing.\n\nThe overall order value is ₹" + price + " for " + numberofTags + " tags. The mode of payment will be Cash on Delivery." + "\n\nIf you have any concerns or want to change any of the above details, please reply to this mail at the earliest. \n\nRegards \nSudoTags Team";
+        String messageUser = "Hello " + personName + ", \n\nThe SudoTags team has received a request for a custom tag with the following details: \n\nName : " + personName + "\nemail id : " + personEmail + "\nUser ID : " + personId + "\nSticker Tags : " + stcikers + "\nPreferred Tag Color : " + colors + "\nNumber of Tags : " + numberofTags + "\nContact Number : " + contact + "\nAddress : " + address + "\n\nIf you didn't opt for a Sticker Tag, your custom tag will be arriving to this mail box within 2 days at max. If you have opted for sticker tags, we will send you the soft copy within 2 days and the Sticker Tags will be arriving at your physical mailing address based on the delivery speed at your location. Also, please reply back to this mail with your correct address asap, if you entered a wrong delivery address earlier, for smooth processing.\n\nThe overall order value is ₹" + price + " for " + numberofTags + " tags. The mode of payment will be Cash on Delivery." + "\n\nIf you have any concerns or want to change any of the above details, please reply to this mail at the earliest. \n\nRegards \nSudoTags Team";
         sendUserMail(mailuser, subjectUser, messageUser);
 
     }

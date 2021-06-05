@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -100,7 +101,8 @@ public class TrialPage extends AppCompatActivity {
         //.child("" + resultText)
 
         dbOwner = FirebaseDatabase.getInstance().getReference().child("" + resultText);
-        dbOwner.addValueEventListener(new ValueEventListener() {
+        Query queryUid = dbOwner.orderByKey().limitToFirst(1);
+        queryUid.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int count = 1;

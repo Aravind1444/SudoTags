@@ -179,7 +179,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:paddingBottom="5dp"
-                android:text="Contact Number             : "
+                android:text="Contact Number            : "
                 android:textColor="#515151"
                 android:textStyle="bold"
                 android:textSize="15dp"
@@ -200,6 +200,40 @@
 
         </RelativeLayout>
 
+        <!--Contact Address-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="5dp"
+                android:text="Address                           : "
+                android:textColor="#515151"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/contactAddress"
+                />
+
+            <EditText
+                android:id="@+id/contactAddressValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_toRightOf="@id/contactAddress"
+                android:hint="delivery address"
+                android:lines="1" />
+
+        </RelativeLayout>
+
         <!--Code for the Request Tags Button-->
 
         <Button
@@ -214,6 +248,16 @@
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="NOTE : SudoTags will be reaching out to you via your mail or contact number to confirm your order as well as the delivery details."
+            android:textColor="#000"
+            android:justificationMode="inter_word"
+            android:textSize="15dp"
+            />
 
 
 
